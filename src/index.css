@@ -1,0 +1,802 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* Ultra Glassmorphism Styles (Apple visionOS / Premium Frosted Crystal Glass) */
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.03) 30%,
+    rgba(14, 16, 24, 0.45) 85%,
+    rgba(10, 11, 16, 0.6) 100%
+  );
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-top-color: rgba(255, 255, 255, 0.28);
+  border-left-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 0 16px 0 rgba(255, 255, 255, 0.02),
+    0 20px 45px -10px rgba(0, 0, 0, 0.65);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.05) 30%,
+    rgba(16, 19, 28, 0.5) 85%,
+    rgba(12, 14, 20, 0.65) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.24);
+  border-top-color: rgba(255, 255, 255, 0.4);
+  border-left-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.35),
+    inset 0 0 20px 0 rgba(255, 255, 255, 0.04),
+    0 25px 55px -10px rgba(0, 0, 0, 0.75);
+}
+
+/* Glass Pill Containers */
+.glass-pill {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.09) 0%,
+    rgba(255, 255, 255, 0.02) 40%,
+    rgba(15, 17, 24, 0.45) 100%
+  );
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-top-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2),
+    0 10px 25px -5px rgba(0, 0, 0, 0.45);
+}
+
+/* Glass Interactive Buttons */
+.glass-button {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    rgba(20, 23, 32, 0.5) 100%
+  );
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-top-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25),
+    0 8px 20px -4px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-button:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(28, 32, 45, 0.65) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.26);
+  border-top-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.35),
+    0 12px 28px -4px rgba(0, 0, 0, 0.55);
+}
+
+/* ==========================================================================
+   CHOREOGRAPHED HERO ENTRANCE KEYFRAME ANIMATIONS
+   Each element has a unique animation curve, vector, and reveal timing
+   ========================================================================== */
+
+/* 1. Background Cinematic Zoom & Clarity */
+@keyframes anim-bg-cinematic {
+  0% {
+    transform: scale(1.08);
+    filter: brightness(0.7) blur(6px);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1) blur(0px);
+  }
+}
+.animate-bg-cinematic {
+  animation: anim-bg-cinematic 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 2. Logo Blueprint Slide & Rotation */
+@keyframes anim-logo-draw {
+  0% {
+    opacity: 0;
+    transform: translateY(-24px) rotate(-6deg) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+.animate-logo-draw {
+  opacity: 0;
+  animation: anim-logo-draw 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+/* 3. Center Navigation Capsule Drop & Bloom */
+@keyframes anim-nav-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-28px) scale(0.92);
+  }
+  75% {
+    transform: translateY(2px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-nav-drop {
+  opacity: 0;
+  animation: anim-nav-drop 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+}
+
+/* 4. Top Right Actions Lateral Elastic Snap */
+@keyframes anim-top-right {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) translateX(20px) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+  }
+}
+.animate-top-right {
+  opacity: 0;
+  animation: anim-top-right 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+
+/* 5. Left Floating Dock Lateral Glide */
+@keyframes anim-dock-glide {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animate-dock-glide {
+  opacity: 0;
+  animation: anim-dock-glide 1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+}
+
+/* 6. Right Categories Panel Slide & Text Glow */
+@keyframes anim-categories-slide {
+  0% {
+    opacity: 0;
+    transform: translateX(45px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+.animate-categories-slide {
+  opacity: 0;
+  animation: anim-categories-slide 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+}
+
+/* 7. Right Scroll Down Drop & Float */
+@keyframes anim-scroll-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes anim-float-loop {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+.animate-scroll-drop {
+  opacity: 0;
+  animation: anim-scroll-drop 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+}
+.animate-float-loop {
+  animation: anim-float-loop 2.4s ease-in-out infinite;
+}
+
+/* 8. Eyebrow Letter Spacing Expansion */
+@keyframes anim-eyebrow-expand {
+  0% {
+    opacity: 0;
+    letter-spacing: 0.1em;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 0.6;
+    letter-spacing: 0.26em;
+    transform: translateY(0);
+  }
+}
+.animate-eyebrow-expand {
+  opacity: 0;
+  animation: anim-eyebrow-expand 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+}
+
+/* 9. Headline Line 1 Kinetic Rise */
+@keyframes anim-headline-line1 {
+  0% {
+    opacity: 0;
+    transform: translateY(36px);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.animate-headline-line1 {
+  opacity: 0;
+  animation: anim-headline-line1 1s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
+}
+
+/* 10. Headline Line 2 Warm Sunset Wipe */
+@keyframes anim-headline-line2 {
+  0% {
+    opacity: 0;
+    transform: translateY(36px) scale(0.96);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+.animate-headline-line2 {
+  opacity: 0;
+  animation: anim-headline-line2 1.05s cubic-bezier(0.16, 1, 0.3, 1) 0.98s forwards;
+}
+
+/* 11. Description Soft Diffuse Rise */
+@keyframes anim-desc-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translateY(0);
+  }
+}
+.animate-desc-rise {
+  opacity: 0;
+  animation: anim-desc-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.1s forwards;
+}
+
+/* 12. Explore CTA Pill Expand */
+@keyframes anim-cta-explore {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.88);
+  }
+  80% {
+    transform: translateY(-2px) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-cta-explore {
+  opacity: 0;
+  animation: anim-cta-explore 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+}
+
+/* 13. Watch CTA Amber Pulse Pop */
+@keyframes anim-cta-watch {
+  0% {
+    opacity: 0;
+    transform: translateX(-18px) scale(0.88);
+  }
+  80% {
+    transform: translateX(2px) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+.animate-cta-watch {
+  opacity: 0;
+  animation: anim-cta-watch 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.3s forwards;
+}
+
+/* ==========================================================================
+   CARDS UNIQUE CASCADE ANIMATIONS (Staggered bottom glass panels)
+   ========================================================================== */
+
+/* 14. Card 1 (Featured Project): Tilt-Shift Rise from Bottom-Left */
+@keyframes anim-card-left {
+  0% {
+    opacity: 0;
+    transform: translateY(55px) rotate(-2deg);
+    filter: blur(5px);
+  }
+  75% {
+    transform: translateY(-3px) rotate(0.4deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+    filter: blur(0);
+  }
+}
+.animate-card-left {
+  opacity: 0;
+  animation: anim-card-left 1.05s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+}
+
+/* 15. Card 2 (Stats & Workflow): Spring Pop & Glow from Center */
+@keyframes anim-card-center {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.92);
+    filter: blur(5px);
+  }
+  75% {
+    transform: translateY(-4px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+.animate-card-center {
+  opacity: 0;
+  animation: anim-card-center 1.05s cubic-bezier(0.16, 1, 0.3, 1) 1.55s forwards;
+}
+
+/* 16. Card 3 (Lifestyle Craft): Tilt-Shift Rise from Bottom-Right */
+@keyframes anim-card-right {
+  0% {
+    opacity: 0;
+    transform: translateY(55px) rotate(2deg);
+    filter: blur(5px);
+  }
+  75% {
+    transform: translateY(-3px) rotate(-0.4deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+    filter: blur(0);
+  }
+}
+.animate-card-right {
+  opacity: 0;
+  animation: anim-card-right 1.05s cubic-bezier(0.16, 1, 0.3, 1) 1.7s forwards;
+}
+
+/* 17. Bottom Bar Sequential Reveal */
+@keyframes anim-bottom-bar {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-bottom-bar {
+  opacity: 0;
+  animation: anim-bottom-bar 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.85s forwards;
+}
+
+/* ==========================================================================
+   CHOREOGRAPHED LUXORA SECTION ENTRANCE KEYFRAME ANIMATIONS
+   Activates sequentially when the user scrolls into the section
+   ========================================================================== */
+
+/* 1. Backdrop Ambient Zoom & Brightness Bloom */
+@keyframes anim-luxora-bg {
+  0% {
+    opacity: 0.7;
+    transform: scale(1.05);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+.animate-luxora-bg {
+  animation: anim-luxora-bg 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 2. Top Nav Capsule: Slide Down & Soft Bloom */
+@keyframes anim-luxora-nav {
+  0% {
+    opacity: 0;
+    transform: translateY(-28px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-luxora-nav {
+  opacity: 0;
+  animation: anim-luxora-nav 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+/* 3. Eyebrow: Tracking Expand */
+@keyframes anim-luxora-eyebrow {
+  0% {
+    opacity: 0;
+    letter-spacing: 0.1em;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 0.25em;
+    transform: translateY(0);
+  }
+}
+.animate-luxora-eyebrow {
+  opacity: 0;
+  animation: anim-luxora-eyebrow 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+/* 4. Headline: Smooth Kinetic Rise */
+@keyframes anim-luxora-headline {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) skewY(1deg);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) skewY(0deg);
+    filter: blur(0);
+  }
+}
+.animate-luxora-headline {
+  opacity: 0;
+  animation: anim-luxora-headline 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.42s forwards;
+}
+
+/* 5. Subtitle: Soft Float-in */
+@keyframes anim-luxora-subtitle {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-luxora-subtitle {
+  opacity: 0;
+  animation: anim-luxora-subtitle 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+}
+
+/* 6. Metric 1 (250+ Projects) */
+@keyframes anim-luxora-metric-1 {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.9);
+  }
+  70% {
+    transform: translateY(-2px) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-luxora-metric-1 {
+  opacity: 0;
+  animation: anim-luxora-metric-1 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+}
+
+/* 7. Metric 2 (12+ Years) */
+@keyframes anim-luxora-metric-2 {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.9);
+  }
+  70% {
+    transform: translateY(-2px) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-luxora-metric-2 {
+  opacity: 0;
+  animation: anim-luxora-metric-2 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+}
+
+/* 8. Metric 3 (98% Satisfaction) */
+@keyframes anim-luxora-metric-3 {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.9);
+  }
+  70% {
+    transform: translateY(-2px) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-luxora-metric-3 {
+  opacity: 0;
+  animation: anim-luxora-metric-3 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
+}
+
+/* 9. Locations Card Rise & Perspective Drop */
+@keyframes anim-luxora-locations {
+  0% {
+    opacity: 0;
+    transform: translateY(35px) scale(0.94);
+    filter: blur(4px);
+  }
+  80% {
+    transform: translateY(-3px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+.animate-luxora-locations {
+  opacity: 0;
+  animation: anim-luxora-locations 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.95s forwards;
+}
+
+/* 10. Hotspot 1 (Materials) Radar Bloom */
+@keyframes anim-luxora-hotspot-1 {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-luxora-hotspot-1 {
+  opacity: 0;
+  animation: anim-luxora-hotspot-1 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+}
+
+/* 11. Hotspot 2 (Space Optimization) */
+@keyframes anim-luxora-hotspot-2 {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-luxora-hotspot-2 {
+  opacity: 0;
+  animation: anim-luxora-hotspot-2 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.05s forwards;
+}
+
+/* 12. Hotspot 3 (Modern Furniture) */
+@keyframes anim-luxora-hotspot-3 {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-luxora-hotspot-3 {
+  opacity: 0;
+  animation: anim-luxora-hotspot-3 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+}
+
+/* 13. Right Stack: 3D Walkthrough Card Glide In */
+@keyframes anim-luxora-walkthrough {
+  0% {
+    opacity: 0;
+    transform: translateX(40px) scale(0.95);
+    filter: blur(3px);
+  }
+  80% {
+    transform: translateX(-4px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+.animate-luxora-walkthrough {
+  opacity: 0;
+  animation: anim-luxora-walkthrough 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+}
+
+/* 14. Service Card 1 (Residential) */
+@keyframes anim-luxora-service-1 {
+  0% {
+    opacity: 0;
+    transform: translateX(35px);
+  }
+  80% {
+    transform: translateX(-3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animate-luxora-service-1 {
+  opacity: 0;
+  animation: anim-luxora-service-1 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
+}
+
+/* 15. Service Card 2 (Commercial) */
+@keyframes anim-luxora-service-2 {
+  0% {
+    opacity: 0;
+    transform: translateX(35px);
+  }
+  80% {
+    transform: translateX(-3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animate-luxora-service-2 {
+  opacity: 0;
+  animation: anim-luxora-service-2 0.75s cubic-bezier(0.16, 1, 0.3, 1) 1.0s forwards;
+}
+
+/* 16. Service Card 3 (Modular) */
+@keyframes anim-luxora-service-3 {
+  0% {
+    opacity: 0;
+    transform: translateX(35px);
+  }
+  80% {
+    transform: translateX(-3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animate-luxora-service-3 {
+  opacity: 0;
+  animation: anim-luxora-service-3 0.75s cubic-bezier(0.16, 1, 0.3, 1) 1.15s forwards;
+}
+
+/* 17. Bottom Feature Pillars Bar Slide Up */
+@keyframes anim-luxora-pillars {
+  0% {
+    opacity: 0;
+    transform: translateY(35px);
+    filter: blur(3px);
+  }
+  80% {
+    transform: translateY(-3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.animate-luxora-pillars {
+  opacity: 0;
+  animation: anim-luxora-pillars 0.85s cubic-bezier(0.16, 1, 0.3, 1) 1.25s forwards;
+}
+
+/* 18. Bottom Consultation CTA Card */
+@keyframes anim-luxora-cta {
+  0% {
+    opacity: 0;
+    transform: translateY(35px) scale(0.95);
+    filter: blur(3px);
+  }
+  80% {
+    transform: translateY(-3px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+.animate-luxora-cta {
+  opacity: 0;
+  animation: anim-luxora-cta 0.85s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+}
+
+/* Shake feedback for locked items */
+@keyframes anim-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-3px); }
+  40%, 80% { transform: translateX(3px); }
+}
+.animate-shake {
+  animation: anim-shake 0.35s ease-in-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090a0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #252834;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #393d4f;
+}
